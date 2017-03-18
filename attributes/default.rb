@@ -2,11 +2,11 @@
 # `file` will download from elasticsearch.org
 # git is not really supported since the move to java based server.
 default['kibana']['install_type'] = 'file' # git | file
-default['kibana']['version'] = '4.2.1-linux-x64' # must match version number of kibana being installed
+default['kibana']['version'] = '5.2.2-linux-x64' # must match version number of kibana being installed
 
 # Values to use for git method of installation
 default['kibana']['git']['url'] = 'https://github.com/elasticsearch/kibana'
-default['kibana']['git']['branch'] = 'v3.1.2'
+default['kibana']['git']['branch'] = 'v5.2.2'
 default['kibana']['git']['type'] = 'sync' # checkout | sync
 default['kibana']['git']['config'] = 'kibana/config.js' # relative path of config file
 default['kibana']['git']['config_template'] = 'config.js.erb' # template to use for config
@@ -17,7 +17,7 @@ default['kibana']['file']['type'] = 'tgz' # zip | tgz
 
 default['kibana']['file']['url'] = nil # calculated based on version, unless you override this
 default['kibana']['file']['checksum'] = nil # sha256 ( shasum -a 256 FILENAME )
-default['kibana']['file']['config'] = 'config/kibana.yml' # relative path of config file
+default['kibana']['file']['config'] = 'kibana.yml' # relative path of config file
 default['kibana']['file']['config_template'] = 'kibana.yml.erb' # template to use for config
 default['kibana']['file']['config_template_cookbook'] = 'kibana_lwrp' # cookbook containing config template
 
@@ -37,7 +37,7 @@ default['kibana']['webserver_port'] = 80
 default['kibana']['webserver_scheme'] = 'http://'
 
 # parent directory of install_dir.  This is required because of the `file` method.
-default['kibana']['install_path'] = '/opt'
+default['kibana']['install_path'] = '/etc'
 
 # the actual installation directory of kibana. If using the `file` method this should be left as is.
 default['kibana']['install_dir'] = "#{node['kibana']['install_path']}/kibana"
