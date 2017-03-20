@@ -15,7 +15,7 @@ class Chef
     property(:name, String, name_property: true)
     property(:user, String, default: 'kibana')
     property(:group, String, default: 'kibana')
-    property(:install_dir, String, default: '/opt/kibana')
+    property(:install_dir, String, default: '/etc/kibana')
     property(:install_type, String, default: 'file')
     property(:git_branch, String, default: lazy { node['kibana']['git']['branch'] })
     property(:git_url, String, default: lazy { node['kibana']['git']['url'] })
@@ -77,7 +77,7 @@ class Chef
           temp_path = Chef::Config[:file_cache_path]
           case kb_args[:file_type]
           when 'tgz', 'zip'
-            download_url = kb_args[:file_url] || "https://download.elastic.co/kibana/kibana/kibana-#{kb_args[:version]}.tar.gz"
+            download_url = kb_args[:file_url] || "https://artifacts.elastic.co/downloads/kibana/kibana-#{kb_args[:version]}.tar.gz"
             remote_file "#{temp_path}/#{temp_file}" do
               checksum lazy { kb_args[:file_checksum] }
               source download_url

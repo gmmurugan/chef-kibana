@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'berkshelf', '>= 4.0.0'
-gem 'chef', '>= 12.6.0'
+gem 'chef', '12.19.36'
+gem 'berkshelf', '5.6'
 
 gem 'rake'
 gem 'rubocop'

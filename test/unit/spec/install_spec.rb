@@ -9,7 +9,7 @@ describe 'kibana_lwrp::install' do
     let(:chef_run) do
       # runner.node.set['logstash'] ...
       runner.node.set['kibana']['user'] = 'kibanana'
-      runner.node.set['kibana']['install_dir'] = '/opt/kibanana'
+      runner.node.set['kibana']['install_dir'] = '/etc/kibanana'
       runner.node.set['kibana']['install_type'] = 'file'
       runner.node.set['kibana']['config_template'] = 'config.js.erb'
       runner.node.set['kibana']['config_cookbook'] = 'kibana'
@@ -28,7 +28,7 @@ describe 'kibana_lwrp::install' do
       expect(chef_run).to create_kibana_user('kibanana').with(
         user: 'kibanana',
         group: 'kibanana',
-        home: '/opt/kibanana'
+        home: '/etc/kibanana'
       )
     end
 
@@ -36,13 +36,13 @@ describe 'kibana_lwrp::install' do
       expect(chef_run).to create_kibana_install('kibana').with(
         user: 'kibanana',
         group: 'kibanana',
-        install_dir: '/opt/kibanana',
+        install_dir: '/etc/kibanana',
         install_type: 'file'
       )
     end
 
     it 'creates kibana config from template' do
-      expect(chef_run).to create_template('/opt/kibanana/current/config/kibana.yml').with(
+      expect(chef_run).to create_template('/etc/kibanana/current/kibana.yml').with(
         source: 'kibana.yml.erb',
         cookbook: 'kibana_lwrp',
         mode: '0644',
@@ -53,7 +53,7 @@ describe 'kibana_lwrp::install' do
     it 'installs and configures a webserver' do
       expect(chef_run).to create_kibana_web('kibana').with(
         type: 'nginx',
-        docroot: '/opt/kibanana/current/kibana',
+        docroot: '/etc/kibanana/current/kibana',
         es_server: '127.0.0.1'
       )
     end

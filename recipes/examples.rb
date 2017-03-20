@@ -21,14 +21,14 @@
 kibana_user 'kibana' do
   name 'kibana'
   group 'kibana'
-  home '/opt/kibana'
+  home '/etc/kibana'
 end
 
 kibana_install 'file' do
   name 'web'
   user 'kibana'
   group 'kibana'
-  install_dir '/opt/kibana'
+  install_dir '/etc/kibana'
   install_type 'file'
 end
 
@@ -36,7 +36,7 @@ kibana_install 'git' do
   name 'kibana-git'
   user 'kibana'
   group 'kibana'
-  install_dir '/opt/kibana-git'
+  install_dir '/etc/kibana-git'
   install_type 'git'
 end
 

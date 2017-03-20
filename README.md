@@ -1,11 +1,9 @@
 Kibana Library Cookbook
 ===============
 
-A library cookbook for installing kibana 4.
+A library cookbook for installing kibana 5 .
 
-If you wish to install Kibana3 try using the '1.3.x' releases of the cookbook.
-
-This is a library cookbook,  you can use you included `kibana_lwrp::install` recipe to install kibana, but it is more likely to be really useful for you to call the LWRPs directly from your own cookbook.  You can use the `kibana_lwrp::install` recipe as a guide and customize to your needs.
+This is a library cookbook,  you can use you included `kibana5-gm::install` recipe to install kibana, but it is more likely to be really useful for you to call the LWRPs directly from your own cookbook.  You can use the `kibana5-gm::install` recipe as a guide and customize to your needs.
 
 This cookbook is tested and works well with the `logstash` and the `elasticsearch` cookbooks found on the chef community site.
 
@@ -20,16 +18,16 @@ See `attributes/*.rb` for attributes ( documented inline )
 
 Usage
 -----
-#### kibana_lwrp::default
+#### kibana5-gm::default
 
 The default recipe does nothing except for allow access to the LWRPs.
 
-#### kibana_lwrp::install
+#### kibana5-gm::install
 
 This is designed to be an example recipe to show you how you might write a wrapper cookbook.   However it should be usable for a
 simple install of kibana.
 
-- install kibana4 `/opt/kibana/XXXX` and create a symlink called `current` in the same directory.
+- install kibana5 `/etc/kibana/XXXX` and create a symlink called `current` in the same directory.
 - install `nginx` and serve the kibana application
 
 If you wish to swap `apache` for `nginx`, simply set `node['kibana']['webserver']` to `apache` in a role/environment/node somewhere.
@@ -78,7 +76,8 @@ Contributing
 License and Authors
 -------------------
 Primary authors:
-
+- Gm Murugan <gmmurugan@gmail.com>
+Courtesy
 - John E. Vincent <lusis.org+github.com@gmail.com>
 - Paul Czarkowski <username.taken@gmail.com>
 
