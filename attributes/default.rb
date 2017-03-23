@@ -17,7 +17,7 @@ default['kibana']['file']['type'] = 'tgz' # zip | tgz
 
 default['kibana']['file']['url'] = nil # calculated based on version, unless you override this
 default['kibana']['file']['checksum'] = nil # sha256 ( shasum -a 256 FILENAME )
-default['kibana']['file']['config'] = 'kibana.yml' # relative path of config file
+default['kibana']['file']['config'] = 'config/kibana.yml' # relative path of config file
 default['kibana']['file']['config_template'] = 'kibana.yml.erb' # template to use for config
 default['kibana']['file']['config_template_cookbook'] = 'kibana5-gm' # cookbook containing config template
 

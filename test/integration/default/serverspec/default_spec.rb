@@ -12,7 +12,7 @@ describe 'nginx' do
 end
 
 describe 'kibana' do
-  describe file('/opt/kibana') do
+  describe file('/etc/kibana') do
     it { should be_directory }
   end
 
